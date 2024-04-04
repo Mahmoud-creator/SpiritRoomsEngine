@@ -40,6 +40,7 @@ Route::post('/chat/send/{roomId}', function (Request $request, $roomId) {
         'user_id' => $userId
     ]);
 
+//    $response = SendMessage::dispatch($userName, $roomId, $message, $userId, $chat);
     $response = SendMessage::dispatch($userName, $roomId, $message, $userId, $chat);
     Log::info('response: ' . json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     return response()->json(['message' => 'Job dispatched OK']);
